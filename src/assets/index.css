@@ -10,18 +10,18 @@
   --chatbot-button-bg-color: #000000;
   --chatbot-button-color: black;
 
-  --chatbot-host-bubble-bg-color: #f7f8ff;
-  --chatbot-host-bubble-color: #303235;
+  --chatbot-host-bubble-bg-color: #ffffff;
+  --chatbot-host-bubble-color: #000000;
 
-  --chatbot-guest-bubble-bg-color: #3b81f6;
+  --chatbot-guest-bubble-bg-color: #000000;
   --chatbot-guest-bubble-color: #ffffff;
 
-  --chatbot-input-bg-color: #ffffff;
-  --chatbot-input-color: #303235;
-  --chatbot-input-placeholder-color: #9095a0;
+  --chatbot-input-bg-color: #000000;
+  --chatbot-input-color: #ffffff;
+  --chatbot-input-placeholder-color: #5b5b5b;
 
   --chatbot-header-bg-color: #ffffff;
-  --chatbot-header-color: #303235;
+  --chatbot-header-color: #000000;
 
   --chatbot-border-radius: 20px;
 

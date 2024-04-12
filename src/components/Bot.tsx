@@ -809,7 +809,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         <div class="mem5 flex flex-col w-full h-full justify-start z-0">
           <div
             ref={chatContainer}
-            class="mem6 overflow-y-scroll flex flex-col flex-grow min-w-full w-full px-3 pt-[70px] relative scrollable-container chatbot-chat-view scroll-smooth"
+            class="overflow-y-scroll flex flex-col flex-grow min-w-full w-full px-3 pt-[70px] relative scrollable-container chatbot-chat-view scroll-smooth"
           >
             <For each={[...messages()]}>
               {(message, index) => {
@@ -891,7 +891,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                         onClick={() => handleDeletePreview(item)}
                       >
                         <img class="memIMG w-full h-full bg-cover" src={item.data as string} />
-                        <span class="mem10 absolute hidden group-hover:flex items-center justify-center z-10 w-full h-full top-0 left-0 bg-black/10 rounded-[10px] transition-colors duration-200">
+                        <span class="aaaa absolute hidden group-hover:flex items-center justify-center z-10 w-full h-full top-0 left-0 bg-black/10 rounded-[10px] transition-colors duration-200">
                           <TrashIcon />
                         </span>
                       </button>

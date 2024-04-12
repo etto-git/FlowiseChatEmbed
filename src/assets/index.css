@@ -162,7 +162,7 @@ textarea {
 
 .chatbot-container {
   border-radius: 20px !important;
-  border: 1.9px solid black;
+  border: 1.2px solid black;
   background-image: var(--chatbot-container-bg-image);
   background-color: var(--chatbot-container-bg-color);
   font-family:

@@ -756,7 +756,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         {isDragActive() && uploadsConfig()?.isImageUploadAllowed && (
           <div
             class=" mem2 absolute top-0 left-0 bottom-0 right-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm text-white z-40 gap-2 border-2 border-dashed"
-            style={{'border-color': props.bubbleBackgroundColor }}
+            style={{ 'border-color': props.bubbleBackgroundColor }}
           >
             <h2 class="text-xl font-semibold">Drop here to upload</h2>
             <For each={uploadsConfig()?.imgUploadSizeAndTypes}>
@@ -901,7 +901,11 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                           }px`,
                         }}
                       >
-                        <audio class="memAUDIO block bg-cover bg-center w-full h-full rounded-none text-transparent" controls src={item.data as string} />
+                        <audio
+                          class="memAUDIO block bg-cover bg-center w-full h-full rounded-none text-transparent"
+                          controls
+                          src={item.data as string}
+                        />
                         <button class="mem12 w-7 h-7 flex items-center justify-center bg-transparent p-1" onClick={() => handleDeletePreview(item)}>
                           <TrashIcon color="white" />
                         </button>

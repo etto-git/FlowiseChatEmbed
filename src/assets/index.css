@@ -8,7 +8,7 @@
   --chatbot-container-font-family: 'Open Sans';
 
   --chatbot-button-bg-color: #0042da;
-  --chatbot-button-color: #ffffff;
+  --chatbot-button-color: black;
 
   --chatbot-host-bubble-bg-color: #f7f8ff;
   --chatbot-host-bubble-color: #303235;
@@ -224,10 +224,17 @@ textarea {
 
 .chatbot-input,
 .feedback-input {
-  color: #303235;
+  /* color: #303235;
   background-color: #ffffff;
   box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.1);
-  border-radius: var(--chatbot-border-radius);
+  border-radius: var(--chatbot-border-radius); */
+  margin: auto;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    /* border-top: 1.2px solid; */
+    /* border-radius: 20px; */
+    /* border-color: black; */
+    border-top: 1.2px solid;
 }
 
 .chatbot-input-error-message {

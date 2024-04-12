@@ -740,7 +740,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
     <>
       <div
         ref={botContainer}
-        class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container mem' + props.class}
+        class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container mem1' + props.class}
         onDragEnter={handleDrag}
       >
         {isDragActive() && (
@@ -755,8 +755,8 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         )}
         {isDragActive() && uploadsConfig()?.isImageUploadAllowed && (
           <div
-            class="absolute top-0 left-0 bottom-0 right-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm text-white z-40 gap-2 border-2 border-dashed"
-            style={{ 'border-color': props.bubbleBackgroundColor }}
+            class=" mem2 absolute top-0 left-0 bottom-0 right-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm text-white z-40 gap-2 border-2 border-dashed"
+            style={{'border-color': props.bubbleBackgroundColor }}
           >
             <h2 class="text-xl font-semibold">Drop here to upload</h2>
             <For each={uploadsConfig()?.imgUploadSizeAndTypes}>
@@ -774,7 +774,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
         {props.showTitle ? (
           <div
-            class="flex flex-row items-center w-full h-[50px] absolute top-0 left-0 z-10"
+            class="mem3 flex flex-row items-center w-full h-[50px] absolute top-0 left-0 z-10"
             style={{
               background: props.bubbleBackgroundColor,
               color: props.bubbleTextColor,
@@ -789,7 +789,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               </>
             </Show>
             <Show when={props.title}>
-              <span class="px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
+              <span class="mem4 px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
             </Show>
             <div style={{ flex: 1 }} />
             <DeleteButton
@@ -803,10 +803,10 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
             </DeleteButton>
           </div>
         ) : null}
-        <div class="flex flex-col w-full h-full justify-start z-0">
+        <div class="mem5 flex flex-col w-full h-full justify-start z-0">
           <div
             ref={chatContainer}
-            class="overflow-y-scroll flex flex-col flex-grow min-w-full w-full px-3 pt-[70px] relative scrollable-container chatbot-chat-view scroll-smooth"
+            class="mem6 overflow-y-scroll flex flex-col flex-grow min-w-full w-full px-3 pt-[70px] relative scrollable-container chatbot-chat-view scroll-smooth"
           >
             <For each={[...messages()]}>
               {(message, index) => {
@@ -872,37 +872,37 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           </div>
           <Show when={messages().length === 1}>
             <Show when={starterPrompts().length > 0}>
-              <div class="w-full flex flex-row flex-wrap px-5 py-[10px] gap-2">
+              <div class="mem7 w-full flex flex-row flex-wrap px-5 py-[10px] gap-2">
                 <For each={[...starterPrompts()]}>{(key) => <StarterPromptBubble prompt={key} onPromptClick={() => promptClick(key)} />}</For>
               </div>
             </Show>
           </Show>
           <Show when={previews().length > 0}>
-            <div class="w-full flex items-center justify-start gap-2 px-5 pt-2 border-t border-[#eeeeee]">
+            <div class="mem8 w-full flex items-center justify-start gap-2 px-5 pt-2 border-t border-[#eeeeee]">
               <For each={[...previews()]}>
                 {(item) => (
                   <>
                     {item.mime.startsWith('image/') ? (
                       <button
-                        class="group w-12 h-12 flex items-center justify-center relative rounded-[10px] overflow-hidden transition-colors duration-200"
+                        class="mem9 group w-12 h-12 flex items-center justify-center relative rounded-[10px] overflow-hidden transition-colors duration-200"
                         onClick={() => handleDeletePreview(item)}
                       >
-                        <img class="w-full h-full bg-cover" src={item.data as string} />
-                        <span class="absolute hidden group-hover:flex items-center justify-center z-10 w-full h-full top-0 left-0 bg-black/10 rounded-[10px] transition-colors duration-200">
+                        <img class="memIMG w-full h-full bg-cover" src={item.data as string} />
+                        <span class="mem10 absolute hidden group-hover:flex items-center justify-center z-10 w-full h-full top-0 left-0 bg-black/10 rounded-[10px] transition-colors duration-200">
                           <TrashIcon />
                         </span>
                       </button>
                     ) : (
                       <div
-                        class={`inline-flex basis-auto flex-grow-0 flex-shrink-0 justify-between items-center rounded-xl h-12 p-1 mr-1 bg-gray-500`}
+                        class={`mem11 inline-flex basis-auto flex-grow-0 flex-shrink-0 justify-between items-center rounded-xl h-12 p-1 mr-1 bg-gray-500`}
                         style={{
                           width: `${
                             chatContainer ? (botProps.isFullPage ? chatContainer?.offsetWidth / 4 : chatContainer?.offsetWidth / 2) : '200'
                           }px`,
                         }}
                       >
-                        <audio class="block bg-cover bg-center w-full h-full rounded-none text-transparent" controls src={item.data as string} />
-                        <button class="w-7 h-7 flex items-center justify-center bg-transparent p-1" onClick={() => handleDeletePreview(item)}>
+                        <audio class="memAUDIO block bg-cover bg-center w-full h-full rounded-none text-transparent" controls src={item.data as string} />
+                        <button class="mem12 w-7 h-7 flex items-center justify-center bg-transparent p-1" onClick={() => handleDeletePreview(item)}>
                           <TrashIcon color="white" />
                         </button>
                       </div>
@@ -912,15 +912,15 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               </For>
             </div>
           </Show>
-          <div class="w-full px-5 pt-2 pb-1">
+          <div class="mem13 w-full px-5 pt-2 pb-1">
             {isRecording() ? (
               <>
                 {recordingNotSupported() ? (
-                  <div class="w-full flex items-center justify-between p-4 border border-[#eeeeee]">
-                    <div class="w-full flex items-center justify-between gap-3">
+                  <div class="mem14 w-full flex items-center justify-between p-4 border border-[#eeeeee]">
+                    <div class="mem15 w-full flex items-center justify-between gap-3">
                       <span class="text-base">To record audio, use modern browsers like Chrome or Firefox that support audio recording.</span>
                       <button
-                        class="py-2 px-4 justify-center flex items-center bg-red-500 text-white rounded-md"
+                        class="mem16 py-2 px-4 justify-center flex items-center bg-red-500 text-white rounded-md"
                         type="button"
                         onClick={() => onRecordingCancelled()}
                       >
@@ -930,7 +930,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                   </div>
                 ) : (
                   <div
-                    class="h-[58px] flex items-center justify-between chatbot-input border border-[#eeeeee]"
+                    class="mem17 h-[58px] flex items-center justify-between chatbot-input border border-[#eeeeee]"
                     data-testid="input"
                     style={{
                       margin: 'auto',
@@ -938,14 +938,14 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                       color: props.textInput?.textColor ?? defaultTextColor,
                     }}
                   >
-                    <div class="flex items-center gap-3 px-4 py-2">
+                    <div class="mem18 flex items-center gap-3 px-4 py-2">
                       <span>
                         <CircleDotIcon color="red" />
                       </span>
                       <span>{elapsedTime() || '00:00'}</span>
                       {isLoadingRecording() && <span class="ml-1.5">Sending...</span>}
                     </div>
-                    <div class="flex items-center">
+                    <div class="mem19 flex items-center">
                       <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="m-0" on:click={onRecordingCancelled}>
                         <span style={{ 'font-family': 'Poppins, sans-serif' }}>Send</span>
                       </CancelButton>

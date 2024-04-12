@@ -7,7 +7,7 @@
   --chatbot-container-bg-color: transparent;
   --chatbot-container-font-family: 'Open Sans';
 
-  --chatbot-button-bg-color: #0042da;
+  --chatbot-button-bg-color: #000000;
   --chatbot-button-color: black;
 
   --chatbot-host-bubble-bg-color: #f7f8ff;
@@ -23,7 +23,7 @@
   --chatbot-header-bg-color: #ffffff;
   --chatbot-header-color: #303235;
 
-  --chatbot-border-radius: 6px;
+  --chatbot-border-radius: 20px;
 
   /* Phone input */
   --PhoneInputCountryFlag-borderColor: transparent;
@@ -188,15 +188,15 @@ textarea {
 
 .chatbot-button {
   color: var(--chatbot-button-color);
-  background-color: #0042da;
-  border: 1px solid #0042da;
+  background-color: #000000;
+  border: 1px solid #000000;
   border-radius: var(--chatbot-border-radius);
 }
 
 .chatbot-button.selectable {
   color: var(--chatbot-host-bubble-color);
   background-color: #f7f8ff;
-  border: 1px solid #0042da;
+  /* border: 1px solid #0042da; */
 }
 
 .chatbot-host-bubble {
@@ -251,13 +251,13 @@ textarea {
 }
 
 .ping span {
-  background-color: #0042da;
+  background-color: #000000;
 }
 
 .rating-icon-container svg {
   width: 42px;
   height: 42px;
-  stroke: #0042da;
+  stroke: #000000;
   fill: #f7f8ff;
   transition: fill 100ms ease-out;
 }
@@ -275,7 +275,7 @@ textarea {
 }
 
 .upload-progress-bar {
-  background-color: #0042da;
+  background-color: #000000;
   border-radius: var(--chatbot-border-radius);
 }
 

@@ -64,7 +64,7 @@ export const TextInput = (props: Props) => {
 
   return (
     <div
-      class={'flex items-center justify-between chatbot-input border border-[#eeeeee]'}
+      class={'memu-1 flex items-center justify-between chatbot-input border border-[#eeeeee]'}
       data-testid="input"
       style={{
         margin: 'auto',

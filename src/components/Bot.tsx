@@ -756,7 +756,10 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         {isDragActive() && uploadsConfig()?.isImageUploadAllowed && (
           <div
             class=" mem2 absolute top-0 left-0 bottom-0 right-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm text-white z-40 gap-2 border-2 border-dashed"
-            style={{ 'border-color': props.bubbleBackgroundColor }}
+            style={{ 
+              'border-color': props.bubbleBackgroundColor 
+
+            }}
           >
             <h2 class="text-xl font-semibold">Drop here to upload</h2>
             <For each={uploadsConfig()?.imgUploadSizeAndTypes}>
@@ -776,8 +779,9 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           <div
             class="mem3 flex flex-row items-center w-full h-[50px] absolute top-0 left-0 z-10"
             style={{
-              background: props.bubbleBackgroundColor,
-              color: props.bubbleTextColor,
+              'background': props.bubbleBackgroundColor? 'white' : 'black',
+              'color': props.bubbleTextColor? 'black' : 'white',
+              'border-bottom': '1.2px solid',
               'border-top-left-radius': props.isFullPage ? '0px' : '6px',
               'border-top-right-radius': props.isFullPage ? '0px' : '6px',
             }}
@@ -924,7 +928,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                     <div class="mem15 w-full flex items-center justify-between gap-3">
                       <span class="text-base">To record audio, use modern browsers like Chrome or Firefox that support audio recording.</span>
                       <button
-                        class="mem16 py-2 px-4 justify-center flex items-center bg-red-500 text-white rounded-md"
+                        class="mem16 py-2 px-4 justify-center flex items-center bg-red-500 text-black rounded-md"
                         type="button"
                         onClick={() => onRecordingCancelled()}
                       >
@@ -938,6 +942,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                     data-testid="input"
                     style={{
                       margin: 'auto',
+                      'border-radius': '20px',
                       'background-color': props.textInput?.backgroundColor ?? defaultBackgroundColor,
                       color: props.textInput?.textColor ?? defaultTextColor,
                     }}

@@ -802,7 +802,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               class="my-2 ml-2"
               on:click={clearChat}
             >
-              <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
+              <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Clear</span>
             </DeleteButton>
           </div>
         ) : null}
@@ -955,7 +955,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                     </div>
                     <div class="mem19 flex items-center">
                       <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="m-0" on:click={onRecordingCancelled}>
-                        <span style={{ 'font-family': 'Poppins, sans-serif' }}>Send</span>
+                        <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
                       </CancelButton>
                       <SendButton
                         sendButtonColor={props.textInput?.sendButtonColor}
@@ -964,7 +964,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                         class="m-0"
                         on:click={onRecordingStopped}
                       >
-                        <span style={{ 'font-family': 'Poppins, sans-serif' }}>Send</span>
+                        <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
                       </SendButton>
                     </div>
                   </div>

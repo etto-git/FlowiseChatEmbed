@@ -208,14 +208,14 @@ textarea {
   /* border: 1.2px solid #000000 !important; */
   border-radius: 20px !important;
   padding:8px;
-  margin-left:0px;
+  margin-left:0px; 
 }
 
 .chatbot-host-bubble > .bubble-typing {
   border-radius: 20px !important;
-  border: 1.2px solid !important;
-  padding: 6px !important;
-  background-color: rgb(247, 248, 255);
+  /* border: 1.2px solid !important; */
+  padding: 8px !important;
+  background-color:#fff;
   color: rgb(0, 0, 0);
   font-size: 16px;
 }

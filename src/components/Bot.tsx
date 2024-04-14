@@ -685,7 +685,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
             const upload: FilePreview = {
               data: hrefStr,
               preview: hrefStr,
-              type: 'url',
+              type: 'url', 
               name: hrefStr.substring(hrefStr.lastIndexOf('/') + 1),
               mime: '',
             };
@@ -781,8 +781,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               background: props.bubbleBackgroundColor ? 'white' : 'black',
               color: props.bubbleTextColor ? 'black' : 'white',
               'border-bottom': '1.2px solid',
-              'border-top-left-radius': props.isFullPage ? '0px' : '6px',
-              'border-top-right-radius': props.isFullPage ? '0px' : '6px',
+            
             }}
           >
             <Show when={props.titleAvatarSrc}>

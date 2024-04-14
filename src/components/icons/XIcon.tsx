@@ -9,8 +9,8 @@ export const XIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     fill="none"
     stroke={props.color ?? defaultButtonColor}
     stroke-width="1.2"
-    stroke-linecap=""
-    stroke-linejoin=""
+    stroke-linecap="round"
+    stroke-linejoin="round"
   >
     <path d="M18 6 6 18" />
     <path d="m6 6 12 12" />

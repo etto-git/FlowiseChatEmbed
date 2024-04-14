@@ -62,7 +62,7 @@ export const ThumbsDownButton = (props: RatingButtonProps) => {
       style={{ background: 'transparent', border: 'none' }}
       title="Thumbs Down"
     >
-      <Show when={!props.isLoading} fallback={<Spinner/>}>
+      <Show when={!props.isLoading} fallback={<Spinner />}>
         <ThumbsDownIcon color={props.sendButtonColor} class={'send-icon flex ' + (props.disableIcon ? 'hidden' : '')} />
       </Show>
     </button>

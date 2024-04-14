@@ -34,7 +34,7 @@ export const DeleteButton = (props: SendButtonProps) => {
       disabled={props.isDisabled || props.isLoading}
       {...props}
       class={
-        'py-2 px-4 justify-center font-semibold focus:outline-none flex items-center disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-100 transition-all filter hover:brightness-90 active:brightness-75 chatbot-button ' +
+        'py-2 px-4 justify-center font-semiboldfocus:outline-none flex items-center disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-100 transition-all filter hover:brightness-90 active:brightness-75 chatbot-button ' +
         props.class
       }
       style={{ background: 'transparent', border: 'none' }}
@@ -56,7 +56,7 @@ export const Spinner = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     viewBox="0 0 24 24"
     data-testid="loading-spinner"
   >
-    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2" />
+    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
     <path
       class="opacity-75"
       fill="currentColor"

@@ -64,7 +64,7 @@ export const TextInput = (props: Props) => {
 
   return (
     <div
-      class={'memu-1 flex items-center justify-between chatbot-input border border-[#eeeeee]'}
+      class={'memu-1 flex items-center justify-between chatbot-input border '}
       data-testid="input"
       style={{
         margin: 'auto',
@@ -91,7 +91,7 @@ export const TextInput = (props: Props) => {
       />
       {props.uploadsConfig?.isSpeechToTextEnabled ? (
         <RecordAudioButton buttonColor={props.sendButtonColor} type="button" class="m-0 start-recording-button" on:click={props.onMicrophoneClicked}>
-          <span style={{ 'font-family': 'Poppins, sans-serif' }}>Record Audio</span>
+          <span>Record Audio</span>
         </RecordAudioButton>
       ) : null}
       <SendButton

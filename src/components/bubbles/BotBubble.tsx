@@ -139,7 +139,7 @@ export const BotBubble = (props: Props) => {
           const button = document.createElement('button');
           button.textContent = annotations.fileName;
           button.className =
-            'py-2 px-4 mb-2 justify-center font-semibold text-white focus:outline-none flex items-center disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-100 transition-all filter hover:brightness-90 active:brightness-75 file-annotation-button';
+            'py-2 px-4 mb-2 justify-center font-semibold focus:outline-none flex items-center disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-100 transition-all filter hover:brightness-90 active:brightness-75 file-annotation-button';
           button.addEventListener('click', function () {
             downloadFile(annotations);
           });

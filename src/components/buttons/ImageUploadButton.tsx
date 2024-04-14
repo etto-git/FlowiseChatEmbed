@@ -21,7 +21,7 @@ export const ImageUploadButton = (props: ImageUploadButtonProps) => {
       }
       style={{ background: 'transparent', border: 'none' }}
     >
-      <Show when={!props.isLoading} fallback={<Spinner class="text-white" />}>
+      <Show when={!props.isLoading} fallback={<Spinner />}>
         <AddImageIcon color={props.buttonColor} />
       </Show>
     </button>

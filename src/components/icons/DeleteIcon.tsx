@@ -1,5 +1,5 @@
 import { JSX } from 'solid-js/jsx-runtime';
-const defaultButtonColor = '#3B81F6';
+const defaultButtonColor = '#000';
 export const DeleteIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -7,7 +7,7 @@ export const DeleteIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    stroke-width="2"
+    stroke-width="1.2"
     stroke={props.color ?? defaultButtonColor}
     fill="none"
     stroke-linecap="round"

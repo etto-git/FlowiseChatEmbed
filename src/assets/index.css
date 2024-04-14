@@ -196,7 +196,7 @@ textarea {
 
 .chatbot-button.selectable {
   color: var(--chatbot-host-bubble-color);
-  background-color: #f7f8ff;
+  background-color: #ffffff;
   border: 1.2px solid #000000;
   border-radius: 20px;
   /* padding:6px */
@@ -207,7 +207,8 @@ textarea {
   background-color: #ffffff;
   border: 1.2px solid #000000 !important;
   border-radius: 20px !important;
-  /* padding:6px */
+  padding:8px;
+  margin-left:0px;
 }
 
 .chatbot-host-bubble > .bubble-typing {
@@ -227,8 +228,8 @@ textarea {
 
 .chatbot-guest-bubble {
   border-radius: 20px !important;
-  border: 1.2px solid !important;
-  /* padding: 6px !important; */
+  border: 1.2px solid black !important;
+  padding: 8px !important;
   background-color: rgb(0, 0, 0) !important;
   color: rgb(255, 255, 255) !important;
   font-size: 16px;
@@ -237,7 +238,7 @@ textarea {
 
 .chatbot-input,
 .feedback-input {
-  /* color: #303235;
+  /* color: #000000;
   background-color: #ffffff;
   box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.1);
   border-radius: var(--chatbot-border-radius); */
@@ -251,7 +252,7 @@ textarea {
 }
 
 .chatbot-input-error-message {
-  color: #303235;
+  color: #ff4242;
 }
 
 .chatbot-button > .send-icon {
@@ -307,20 +308,20 @@ textarea {
 }
 
 .secondary-button {
-  background-color: #f7f8ff;
+  background-color: #ffffff;
   color: var(--chatbot-host-bubble-color);
   border-radius: var(--chatbot-border-radius);
 }
 
 .chatbot-country-select {
-  color: #303235;
+  color: #000000;
   background-color: #ffffff;
   border-radius: var(--chatbot-border-radius);
 }
 
 .chatbot-date-input {
   color-scheme: light;
-  color: #303235;
+  color: #000000;
   background-color: #ffffff;
   border-radius: var(--chatbot-border-radius);
 }
@@ -359,7 +360,7 @@ textarea {
 
 .usermessagewaiting-dark {
   padding: 1rem 1.5rem 1rem 1.5rem;
-  color: #ececf1;
+  color: #000000;
   background: linear-gradient(to left, #2e2352, #1d3d60, #2e2352);
   background-size: 200% 200%;
   background-position: -100% 0;
@@ -455,7 +456,7 @@ input {
   background-color: transparent;
   border: none;
   padding: 10px 10px;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
 .mem13{
   padding: 0;

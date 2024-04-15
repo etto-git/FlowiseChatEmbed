@@ -7,7 +7,7 @@ export const DeleteIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    stroke-width="1.2"
+    stroke-width="2"
     stroke={props.color ?? defaultButtonColor}
     fill="none"
     stroke-linecap="round"

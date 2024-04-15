@@ -78,7 +78,7 @@ export type BotProps = {
   observersConfig?: observersConfigType;
 };
 
-const defaultWelcomeMessage = 'Help me!';
+const defaultWelcomeMessage = 'Greetings traveler!';
 
 /*const sourceDocuments = [
     {
@@ -158,7 +158,7 @@ const defaultWelcomeMessage = 'Help me!';
 ]*/
 
 const defaultBackgroundColor = '#ffffff';
-const defaultTextColor = '#303235';
+const defaultTextColor = '#000';
 
 export const Bot = (botProps: BotProps & { class?: string }) => {
   // set a default value for showTitle if not set and merge with other props

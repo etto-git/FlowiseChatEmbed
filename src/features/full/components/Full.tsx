@@ -38,8 +38,6 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
             height: props.theme?.chatWindow?.height ? `${props.theme?.chatWindow?.height.toString()}vh` : '35vh',
             // width: props.theme?.chatWindow?.width ? `${props.theme?.chatWindow?.width.toString()}vw` : '40vw',
             margin: '0px',
-          
-           
           }}
         >
           <Bot

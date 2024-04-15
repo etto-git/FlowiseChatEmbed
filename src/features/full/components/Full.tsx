@@ -32,7 +32,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
       <style>{styles}</style>
       <Show when={isBotDisplayed()}>
         <div
-          part="parent-bot"
+          part="parent-bot" 
           style={{
             'background-color': props.theme?.chatWindow?.backgroundColor || '#ffffff',
             height: props.theme?.chatWindow?.height ? `${props.theme?.chatWindow?.height.toString()}vh` : '35vh',

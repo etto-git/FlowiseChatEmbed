@@ -776,6 +776,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
         {props.showTitle ? (
           <div
+            part="mem3"
             class="mem3 flex flex-row items-center w-full h-[50px] absolute top-0 left-0 z-10"
             style={{
               background: props.bubbleBackgroundColor ? 'white' : 'black',

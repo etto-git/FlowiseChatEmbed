@@ -263,7 +263,7 @@ textarea {
 .chatbot-chat-view {
   max-width: 800px;
   padding: 12px;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 .chatbot-chat-view ::before {
 	position: absolute;

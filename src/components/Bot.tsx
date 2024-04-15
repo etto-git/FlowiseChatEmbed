@@ -917,7 +917,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               </For>
             </div>
           </Show>
-          <div class="mem13 w-full px-5 pt-2 pb-1">
+          <div part="mem13" class="w-full px-5 pt-2 pb-1">
             {isRecording() ? (
               <>
                 {recordingNotSupported() ? (

@@ -5,7 +5,7 @@
 :host {
   --chatbot-container-bg-image: none;
   --chatbot-container-bg-color: transparent;
-  --chatbot-container-font-family: 'Open Sans';
+  --chatbot-container-font-family: 'LexiconNo2-RomanA';
 
   --chatbot-button-bg-color: #000000;
   --chatbot-button-color: black;
@@ -18,7 +18,7 @@
 
   --chatbot-input-bg-color: #000000;
   --chatbot-input-color: #ffffff;
-  --chatbot-input-placeholder-color: #5b5b5b;
+  --chatbot-input-placeholder-color: #171717;
 
   --chatbot-header-bg-color: #ffffff;
   --chatbot-header-color: #000000;

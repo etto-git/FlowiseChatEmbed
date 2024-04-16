@@ -774,8 +774,11 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           </div>
         )}
 
-        {props.showTitle ? (
-          <div
+        {/* {props.showTitle ? (
+           
+        ) : null} */}
+        <div class="mem5 flex flex-col w-full h-full justify-start z-0">
+        <div
             part="mem3"
             class="mem3 flex flex-row items-center w-full h-[50px] top-0 left-0 z-10"
             style={{
@@ -804,8 +807,6 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Clear</span>
             </DeleteButton>
           </div>
-        ) : null}
-        <div class="mem5 flex flex-col w-full h-full justify-start z-0">
           <div
             part="memu-5"
             ref={chatContainer}

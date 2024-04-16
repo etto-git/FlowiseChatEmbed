@@ -77,7 +77,7 @@ export const TextInput = (props: Props) => {
       {props.uploadsConfig?.isImageUploadAllowed ? (
         <>
           <ImageUploadButton buttonColor={props.sendButtonColor} type="button" class="m-0" on:click={handleImageUploadClick}>
-            <span style={{ 'font-family': 'Poppins, sans-serif' }}>Image Upload</span>
+            <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Image Upload</span>
           </ImageUploadButton>
           <input style={{ display: 'none' }} multiple ref={fileUploadRef as HTMLInputElement} type="file" onChange={handleFileChange} />
         </>
@@ -102,7 +102,7 @@ export const TextInput = (props: Props) => {
         class="m-0"
         on:click={submit}
       >
-        <span style={{ 'font-family': 'Poppins, sans-serif' }}>Send</span>
+        <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
       </SendButton>
     </div>
   );

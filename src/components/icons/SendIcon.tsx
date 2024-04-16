@@ -8,9 +8,8 @@ export const SendIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
       '-moz-transform': 'scale(1, 3.2)',
       '-ms-transform': 'scale(1, 3.2)',
       '-o-transform': 'scale(1, 3.2)',
-      'letter-spacing':'1pt',
-      'margin-right':'2px',
-
+      'letter-spacing': '1pt',
+      'margin-right': '2px',
     }}
   >
     ||||||

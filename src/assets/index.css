@@ -461,6 +461,7 @@ input {
   text-align: center;
   padding-left: 18px;
   letter-spacing: 1pt;
+  text-transform: uppercase;
   color: black !important;
 }
   

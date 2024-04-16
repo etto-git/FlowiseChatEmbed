@@ -6,11 +6,9 @@ export const SendIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    stroke-width="2"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke="black"
+    stroke-width="none"
+    fill="black"
+  
   >
     <path d="M0.9,242.7h0.3v7.7H0.9V242.7z" />
     <path d="M2.1,242.7h0.3v7.7H2.1V242.7z" />

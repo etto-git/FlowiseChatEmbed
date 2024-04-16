@@ -22,7 +22,7 @@ export const SendButton = (props: SendButtonProps) => {
       style={{ color: 'black', background: 'transparent', border: 'none' }}
     >
       <Show when={!props.isLoading} fallback={<Spinner class="text-black" />}>
-        <SendIcon color={props.sendButtonColor} class={'send-icon flex ' + (props.disableIcon ? 'hidden' : '')} />
+        <SendIcon color={props.sendButtonColor} class={'send-icon flex' + (props.disableIcon ? '' : '')} />
       </Show>
     </button>
   );

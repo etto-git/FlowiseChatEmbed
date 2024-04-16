@@ -780,7 +780,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         <div class="mem5 flex flex-col w-full h-full justify-start z-0">
           <div
             part="mem3"
-            class="mem3 flex flex-row items-center w-full h-[50px] top-0 left-0 z-10"
+            class="mem3 flex flex-row items-center h-[50px] top-0 left-0 z-10"
             style={{
               background: props.bubbleBackgroundColor ? 'white' : 'black',
               color: props.bubbleTextColor ? 'black' : 'white',

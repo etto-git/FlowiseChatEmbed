@@ -456,7 +456,7 @@ textarea {
 input {
   background-color: transparent;
   border: none;
-  padding: 10px 10px;
+  padding: 10px !important;
   /* font-family: 'Poppins', sans-serif; */
 }
   

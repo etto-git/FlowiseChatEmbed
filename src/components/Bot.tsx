@@ -796,7 +796,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
             <Show when={props.title}>
               <span class="mem4 px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
             </Show>
-            <div style={{ flex: 1 }} />
+            <div part="ipaddress" id="ip-address" style={{ flex: 1 }} />
             <DeleteButton
               sendButtonColor={props.bubbleTextColor}
               type="button"

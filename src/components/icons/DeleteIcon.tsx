@@ -1,11 +1,7 @@
 import { JSX } from 'solid-js/jsx-runtime';
 const defaultButtonColor = '#000000';
 export const DeleteIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
-  <span
-  part="refreshicon"
->
-  ||||
-</span>
+  <span part="refreshicon">||||</span>
   // <svg
   //   xmlns="http://www.w3.org/2000/svg"
   //   class="icon icon-tabler icon-tabler-refresh"

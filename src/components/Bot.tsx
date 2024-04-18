@@ -738,6 +738,9 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   return (
     <>
+    <div class="ellipseContainer">
+           
+       
       <div
         ref={botContainer}
         class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container mem1' + props.class}
@@ -990,6 +993,8 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           </div>
         </div>
       </div>
+      <div class="ellipse ellipse1"></div>
+        </div>
       {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
     </>
   );

@@ -79,7 +79,7 @@ export const TextInput = (props: Props) => {
           <ImageUploadButton buttonColor={props.sendButtonColor} type="button" class="m-0" on:click={handleImageUploadClick}>
             <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Image Upload</span>
           </ImageUploadButton>
-          <input style={{ display: 'none' }} multiple ref={fileUploadRef as HTMLInputElement} type="file" onChange={handleFileChange} />
+          <input  style={{ display: 'none' }} multiple ref={fileUploadRef as HTMLInputElement} type="file" onChange={handleFileChange} />
         </>
       ) : null}
       <ShortTextInput

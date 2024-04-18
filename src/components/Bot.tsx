@@ -738,7 +738,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   return (
     <>
-      <div class="ellipseContainer">
+     
         <div
           ref={botContainer}
           class={
@@ -993,8 +993,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
             </div>
           </div>
         </div>
-        <div class="ellipse ellipse1" />
-      </div>
+    
       {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
     </>
   );

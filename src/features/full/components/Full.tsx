@@ -31,6 +31,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
     <>
       <style>{styles}</style>
       <Show when={isBotDisplayed()}>
+      <div class="ellipseContainer">
         <div
           part="parent-bot"
           style={{
@@ -60,6 +61,8 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
             observersConfig={props.observersConfig}
           />
         </div>
+        <div class="ellipse ellipse1" />
+      </div>
       </Show>
     </>
   );

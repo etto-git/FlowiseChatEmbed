@@ -78,7 +78,7 @@ export type BotProps = {
   observersConfig?: observersConfigType;
 };
 
-const defaultWelcomeMessage = 'Greetings traveler!';
+const defaultWelcomeMessage = 'Welcome dear traveler';
 
 /*const sourceDocuments = [
     {
@@ -738,259 +738,262 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   return (
     <>
-      <div
-        ref={botContainer}
-        class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container mem1' + props.class}
-        onDragEnter={handleDrag}
-      >
-        {isDragActive() && (
-          <div
-            class="absolute top-0 left-0 bottom-0 right-0 w-full h-full z-50"
-            onDragEnter={handleDrag}
-            onDragLeave={handleDrag}
-            onDragEnd={handleDrag}
-            onDragOver={handleDrag}
-            onDrop={handleDrop}
-          />
-        )}
-        {isDragActive() && uploadsConfig()?.isImageUploadAllowed && (
-          <div
-            class=" mem2 absolute top-0 left-0 bottom-0 right-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm z-40 gap-2 border-2 border-dashed"
-            style={{
-              'border-color': props.bubbleBackgroundColor,
-            }}
-          >
-            <h2 class="text-xl font-semibold">Drop here to upload</h2>
-            <For each={uploadsConfig()?.imgUploadSizeAndTypes}>
-              {(allowed) => {
-                return (
-                  <>
-                    <span>{allowed.fileTypes?.join(', ')}</span>
-                    <span>Max Allowed Size: {allowed.maxUploadSize} MB</span>
-                  </>
-                );
+     
+        <div
+          ref={botContainer}
+          class={
+            'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container mem1' + props.class
+          }
+          onDragEnter={handleDrag}
+        >
+          {isDragActive() && (
+            <div
+              class="absolute top-0 left-0 bottom-0 right-0 w-full h-full z-50"
+              onDragEnter={handleDrag}
+              onDragLeave={handleDrag}
+              onDragEnd={handleDrag}
+              onDragOver={handleDrag}
+              onDrop={handleDrop}
+            />
+          )}
+          {isDragActive() && uploadsConfig()?.isImageUploadAllowed && (
+            <div
+              class=" mem2 absolute top-0 left-0 bottom-0 right-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm z-40 gap-2 border-2 border-dashed"
+              style={{
+                'border-color': props.bubbleBackgroundColor,
               }}
-            </For>
-          </div>
-        )}
-
-        {/* {props.showTitle ? (
-           
-        ) : null} */}
-        <div class="mem5 flex flex-col w-full h-full justify-start z-0">
-          <div
-            part="mem3"
-            class="mem3 flex flex-row items-center h-[50px] top-0 left-0 z-10"
-            style={{
-              background: props.bubbleBackgroundColor ? 'white' : 'black',
-              color: props.bubbleTextColor ? 'black' : 'white',
-              'border-bottom': '1.2px solid',
-            }}
-          >
-            <Show when={props.titleAvatarSrc}>
-              <>
-                <div style={{ width: '15px' }} />
-                <Avatar initialAvatarSrc={props.titleAvatarSrc} />
-              </>
-            </Show>
-            <Show when={props.title}>
-              <span class="mem4 px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
-            </Show>
-            <div part="ipaddress" id="ip-address" style={{ flex: 1 }} />
-            <DeleteButton
-              sendButtonColor={props.bubbleTextColor}
-              type="button"
-              isDisabled={messages().length === 1}
-              class="my-2 ml-2"
-              on:click={clearChat}
             >
-              <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Clear</span>
-            </DeleteButton>
-          </div>
-          <div
-            part="memu-5"
-            ref={chatContainer}
-            class="overflow-y-scroll flex flex-col flex-grow px-3 relative scrollable-container chatbot-chat-view scroll-smooth"
-          >
-            <For each={[...messages()]}>
-              {(message, index) => {
-                return (
-                  <>
-                    {message.type === 'userMessage' && (
-                      <GuestBubble
-                        message={message}
-                        apiHost={props.apiHost}
-                        chatflowid={props.chatflowid}
-                        chatId={chatId()}
-                        backgroundColor={props.userMessage?.backgroundColor}
-                        textColor={props.userMessage?.textColor}
-                        showAvatar={props.userMessage?.showAvatar}
-                        avatarSrc={props.userMessage?.avatarSrc}
-                        fontSize={props.fontSize}
-                      />
-                    )}
-                    {message.type === 'apiMessage' && (
-                      <BotBubble
-                        message={message}
-                        fileAnnotations={message.fileAnnotations}
-                        chatflowid={props.chatflowid}
-                        chatId={chatId()}
-                        apiHost={props.apiHost}
-                        backgroundColor={props.botMessage?.backgroundColor}
-                        textColor={props.botMessage?.textColor}
-                        showAvatar={props.botMessage?.showAvatar}
-                        avatarSrc={props.botMessage?.avatarSrc}
-                        chatFeedbackStatus={chatFeedbackStatus()}
-                        fontSize={props.fontSize}
-                      />
-                    )}
-                    {message.type === 'userMessage' && loading() && index() === messages().length - 1 && <LoadingBubble />}
-                    {message.type === 'apiMessage' && message.message === '' && loading() && index() === messages().length - 1 && <LoadingBubble />}
-                    {message.sourceDocuments && message.sourceDocuments.length && (
-                      <div style={{ display: 'flex', 'flex-direction': 'row', width: '100%', 'flex-wrap': 'wrap' }}>
-                        <For each={[...removeDuplicateURL(message)]}>
-                          {(src) => {
-                            const URL = isValidURL(src.metadata.source);
-                            return (
-                              <SourceBubble
-                                pageContent={URL ? URL.pathname : src.pageContent}
-                                metadata={src.metadata}
-                                onSourceClick={() => {
-                                  if (URL) {
-                                    window.open(src.metadata.source, '_blank');
-                                  } else {
-                                    setSourcePopupSrc(src);
-                                    setSourcePopupOpen(true);
-                                  }
-                                }}
-                              />
-                            );
-                          }}
-                        </For>
-                      </div>
-                    )}
-                  </>
-                );
-              }}
-            </For>
-          </div>
-          <Show when={messages().length === 1}>
-            <Show when={starterPrompts().length > 0}>
-              <div class="mem7 w-full flex flex-row flex-wrap px-5 py-[10px] gap-2">
-                <For each={[...starterPrompts()]}>{(key) => <StarterPromptBubble prompt={key} onPromptClick={() => promptClick(key)} />}</For>
-              </div>
-            </Show>
-          </Show>
-          <Show when={previews().length > 0}>
-            <div class="mem8 w-full flex items-center justify-start gap-2 px-5 pt-2 border-t border-[#eeeeee]">
-              <For each={[...previews()]}>
-                {(item) => (
-                  <>
-                    {item.mime.startsWith('image/') ? (
-                      <button
-                        class="mem9 group w-12 h-12 flex items-center justify-center relative rounded-[10px] overflow-hidden transition-colors duration-200"
-                        onClick={() => handleDeletePreview(item)}
-                      >
-                        <img class="memIMG w-full h-full bg-cover" src={item.data as string} />
-                        <span class="aaaa absolute hidden group-hover:flex items-center justify-center z-10 w-full h-full top-0 left-0 bg-black/10 rounded-[10px] transition-colors duration-200">
-                          <TrashIcon />
-                        </span>
-                      </button>
-                    ) : (
-                      <div
-                        class={`mem11 inline-flex basis-auto flex-grow-0 flex-shrink-0 justify-between items-center rounded-xl h-12 p-1 mr-1 bg-gray-500`}
-                        style={{
-                          width: `${
-                            chatContainer ? (botProps.isFullPage ? chatContainer?.offsetWidth / 4 : chatContainer?.offsetWidth / 2) : '200'
-                          }px`,
-                        }}
-                      >
-                        <audio
-                          class="memAUDIO block bg-cover bg-center w-full h-full rounded-none text-transparent"
-                          controls
-                          src={item.data as string}
-                        />
-                        <button class="mem12 w-7 h-7 flex items-center justify-center bg-transparent p-1" onClick={() => handleDeletePreview(item)}>
-                          <TrashIcon color="white" />
-                        </button>
-                      </div>
-                    )}
-                  </>
-                )}
+              <h2 class="text-xl font-semibold">Drop here to upload</h2>
+              <For each={uploadsConfig()?.imgUploadSizeAndTypes}>
+                {(allowed) => {
+                  return (
+                    <>
+                      <span>{allowed.fileTypes?.join(', ')}</span>
+                      <span>Max Allowed Size: {allowed.maxUploadSize} MB</span>
+                    </>
+                  );
+                }}
               </For>
             </div>
-          </Show>
-          <div part="mem13" class="w-full px-5 pt-2 pb-1">
-            {isRecording() ? (
-              <>
-                {recordingNotSupported() ? (
-                  <div class="mem14 w-full flex items-center justify-between p-4 border border-[#eeeeee]">
-                    <div class="mem15 w-full flex items-center justify-between gap-3">
-                      <span class="text-base">To record audio, use modern browsers like Chrome or Firefox that support audio recording.</span>
-                      <button
-                        class="mem16 py-2 px-4 justify-center flex items-center bg-red-500 text-black rounded-md"
-                        type="button"
-                        onClick={() => onRecordingCancelled()}
-                      >
-                        Okay
-                      </button>
+          )}
+
+          {/* {props.showTitle ? (
+           
+        ) : null} */}
+          <div class="mem5 flex flex-col w-full h-full justify-start z-0">
+            <div
+              part="mem3"
+              class="mem3 flex flex-row items-center h-[50px] top-0 left-0 z-10"
+              style={{
+                background: props.bubbleBackgroundColor ? 'white' : 'black',
+                color: props.bubbleTextColor ? 'black' : 'white',
+                'border-bottom': '1.2px solid',
+              }}
+            >
+              <Show when={props.titleAvatarSrc}>
+                <>
+                  <div style={{ width: '15px' }} />
+                  <Avatar initialAvatarSrc={props.titleAvatarSrc} />
+                </>
+              </Show>
+              <Show when={props.title}>
+                <span class="mem4 px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
+              </Show>
+              <div part="ipaddress" id="ip-address" style={{ flex: 1 }} />
+              <DeleteButton
+                sendButtonColor={props.bubbleTextColor}
+                type="button"
+                isDisabled={messages().length === 1}
+                class="my-2 ml-2"
+                on:click={clearChat}
+              >
+                <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Clear</span>
+              </DeleteButton>
+            </div>
+            <div
+              part="memu-5"
+              ref={chatContainer}
+              class="overflow-y-scroll flex flex-col flex-grow px-3 relative scrollable-container chatbot-chat-view scroll-smooth"
+            >
+              <For each={[...messages()]}>
+                {(message, index) => {
+                  return (
+                    <>
+                      {message.type === 'userMessage' && (
+                        <GuestBubble
+                          message={message}
+                          apiHost={props.apiHost}
+                          chatflowid={props.chatflowid}
+                          chatId={chatId()}
+                          backgroundColor={props.userMessage?.backgroundColor}
+                          textColor={props.userMessage?.textColor}
+                          showAvatar={props.userMessage?.showAvatar}
+                          avatarSrc={props.userMessage?.avatarSrc}
+                          fontSize={props.fontSize}
+                        />
+                      )}
+                      {message.type === 'apiMessage' && (
+                        <BotBubble
+                          message={message}
+                          fileAnnotations={message.fileAnnotations}
+                          chatflowid={props.chatflowid}
+                          chatId={chatId()}
+                          apiHost={props.apiHost}
+                          backgroundColor={props.botMessage?.backgroundColor}
+                          textColor={props.botMessage?.textColor}
+                          showAvatar={props.botMessage?.showAvatar}
+                          avatarSrc={props.botMessage?.avatarSrc}
+                          chatFeedbackStatus={chatFeedbackStatus()}
+                          fontSize={props.fontSize}
+                        />
+                      )}
+                      {message.type === 'userMessage' && loading() && index() === messages().length - 1 && <LoadingBubble />}
+                      {message.type === 'apiMessage' && message.message === '' && loading() && index() === messages().length - 1 && <LoadingBubble />}
+                      {message.sourceDocuments && message.sourceDocuments.length && (
+                        <div style={{ display: 'flex', 'flex-direction': 'row', width: '100%', 'flex-wrap': 'wrap' }}>
+                          <For each={[...removeDuplicateURL(message)]}>
+                            {(src) => {
+                              const URL = isValidURL(src.metadata.source);
+                              return (
+                                <SourceBubble
+                                  pageContent={URL ? URL.pathname : src.pageContent}
+                                  metadata={src.metadata}
+                                  onSourceClick={() => {
+                                    if (URL) {
+                                      window.open(src.metadata.source, '_blank');
+                                    } else {
+                                      setSourcePopupSrc(src);
+                                      setSourcePopupOpen(true);
+                                    }
+                                  }}
+                                />
+                              );
+                            }}
+                          </For>
+                        </div>
+                      )}
+                    </>
+                  );
+                }}
+              </For>
+            </div>
+            <Show when={messages().length === 1}>
+              <Show when={starterPrompts().length > 0}>
+                <div class="mem7 w-full flex flex-row flex-wrap px-5 py-[10px] gap-2">
+                  <For each={[...starterPrompts()]}>{(key) => <StarterPromptBubble prompt={key} onPromptClick={() => promptClick(key)} />}</For>
+                </div>
+              </Show>
+            </Show>
+            <Show when={previews().length > 0}>
+              <div class="mem8 w-full flex items-center justify-start gap-2 px-5 pt-2 border-t border-[#eeeeee]">
+                <For each={[...previews()]}>
+                  {(item) => (
+                    <>
+                      {item.mime.startsWith('image/') ? (
+                        <button
+                          class="mem9 group w-12 h-12 flex items-center justify-center relative rounded-[10px] overflow-hidden transition-colors duration-200"
+                          onClick={() => handleDeletePreview(item)}
+                        >
+                          <img class="memIMG w-full h-full bg-cover" src={item.data as string} />
+                          <span class="aaaa absolute hidden group-hover:flex items-center justify-center z-10 w-full h-full top-0 left-0 bg-black/10 rounded-[10px] transition-colors duration-200">
+                            <TrashIcon />
+                          </span>
+                        </button>
+                      ) : (
+                        <div
+                          class={`mem11 inline-flex basis-auto flex-grow-0 flex-shrink-0 justify-between items-center rounded-xl h-12 p-1 mr-1 bg-gray-500`}
+                          style={{
+                            width: `${
+                              chatContainer ? (botProps.isFullPage ? chatContainer?.offsetWidth / 4 : chatContainer?.offsetWidth / 2) : '200'
+                            }px`,
+                          }}
+                        >
+                          <audio
+                            class="memAUDIO block bg-cover bg-center w-full h-full rounded-none text-transparent"
+                            controls
+                            src={item.data as string}
+                          />
+                          <button class="mem12 w-7 h-7 flex items-center justify-center bg-transparent p-1" onClick={() => handleDeletePreview(item)}>
+                            <TrashIcon color="white" />
+                          </button>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </For>
+              </div>
+            </Show>
+            <div part="mem13" class="w-full px-5 pt-2 pb-1">
+              {isRecording() ? (
+                <>
+                  {recordingNotSupported() ? (
+                    <div class="mem14 w-full flex items-center justify-between p-4 border border-[#eeeeee]">
+                      <div class="mem15 w-full flex items-center justify-between gap-3">
+                        <span class="text-base">To record audio, use modern browsers like Chrome or Firefox that support audio recording.</span>
+                        <button
+                          class="mem16 py-2 px-4 justify-center flex items-center bg-red-500 text-black rounded-md"
+                          type="button"
+                          onClick={() => onRecordingCancelled()}
+                        >
+                          Okay
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div
-                    class="mem17 h-[58px] flex items-center justify-between chatbot-input border border-[#eeeeee]"
-                    data-testid="input"
-                    style={{
-                      margin: 'auto',
-                      'border-radius': '20px',
-                      'background-color': props.textInput?.backgroundColor ?? defaultBackgroundColor,
-                      color: props.textInput?.textColor ?? defaultTextColor,
-                    }}
-                  >
-                    <div class="mem18 flex items-center gap-3 px-4 py-2">
-                      <span>
-                        <CircleDotIcon color="red" />
-                      </span>
-                      <span>{elapsedTime() || '00:00'}</span>
-                      {isLoadingRecording() && <span class="ml-1.5">Sending...</span>}
+                  ) : (
+                    <div
+                      class="mem17 h-[58px] flex items-center justify-between chatbot-input border border-[#eeeeee]"
+                      data-testid="input"
+                      style={{
+                        margin: 'auto',
+                        'border-radius': '20px',
+                        'background-color': props.textInput?.backgroundColor ?? defaultBackgroundColor,
+                        color: props.textInput?.textColor ?? defaultTextColor,
+                      }}
+                    >
+                      <div class="mem18 flex items-center gap-3 px-4 py-2">
+                        <span>
+                          <CircleDotIcon color="red" />
+                        </span>
+                        <span>{elapsedTime() || '00:00'}</span>
+                        {isLoadingRecording() && <span class="ml-1.5">Sending...</span>}
+                      </div>
+                      <div class="mem19 flex items-center">
+                        <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="m-0" on:click={onRecordingCancelled}>
+                          <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
+                        </CancelButton>
+                        <SendButton
+                          sendButtonColor={props.textInput?.sendButtonColor}
+                          type="button"
+                          isDisabled={loading()}
+                          class="m-0"
+                          on:click={onRecordingStopped}
+                        >
+                          <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
+                        </SendButton>
+                      </div>
                     </div>
-                    <div class="mem19 flex items-center">
-                      <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="m-0" on:click={onRecordingCancelled}>
-                        <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
-                      </CancelButton>
-                      <SendButton
-                        sendButtonColor={props.textInput?.sendButtonColor}
-                        type="button"
-                        isDisabled={loading()}
-                        class="m-0"
-                        on:click={onRecordingStopped}
-                      >
-                        <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Send</span>
-                      </SendButton>
-                    </div>
-                  </div>
-                )}
-              </>
-            ) : (
-              <TextInput
-                backgroundColor={props.textInput?.backgroundColor}
-                textColor={props.textInput?.textColor}
-                placeholder={props.textInput?.placeholder}
-                sendButtonColor={props.textInput?.sendButtonColor}
-                fontSize={props.fontSize}
-                disabled={loading()}
-                defaultValue={userInput()}
-                onSubmit={handleSubmit}
-                uploadsConfig={uploadsConfig()}
-                setPreviews={setPreviews}
-                onMicrophoneClicked={onMicrophoneClicked}
-                handleFileChange={handleFileChange}
-              />
-            )}
+                  )}
+                </>
+              ) : (
+                <TextInput
+                  backgroundColor={props.textInput?.backgroundColor}
+                  textColor={props.textInput?.textColor}
+                  placeholder={props.textInput?.placeholder}
+                  sendButtonColor={props.textInput?.sendButtonColor}
+                  fontSize={props.fontSize}
+                  disabled={loading()}
+                  defaultValue={userInput()}
+                  onSubmit={handleSubmit}
+                  uploadsConfig={uploadsConfig()}
+                  setPreviews={setPreviews}
+                  onMicrophoneClicked={onMicrophoneClicked}
+                  handleFileChange={handleFileChange}
+                />
+              )}
+            </div>
           </div>
         </div>
-      </div>
-
+    
       {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
     </>
   );

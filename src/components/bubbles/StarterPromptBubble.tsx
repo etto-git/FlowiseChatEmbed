@@ -11,6 +11,7 @@ export const StarterPromptBubble = (props: Props) => (
       onClick={() => props.onPromptClick?.()}
     >
       <span
+        part="chatbot-host-bubble"
         class="px-2 py-1 ml-1 whitespace-pre-wrap max-w-full chatbot-host-bubble"
         data-testid="host-bubble"
         style={{

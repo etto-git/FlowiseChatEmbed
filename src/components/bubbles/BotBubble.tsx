@@ -161,6 +161,7 @@ export const BotBubble = (props: Props) => {
       </Show>
       {props.message.message && (
         <span
+          part="chatbot-host-bubble"
           ref={botMessageEl}
           class="px-4 py-2 ml-2 max-w-full chatbot-host-bubble prose"
           data-testid="host-bubble"

@@ -797,7 +797,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               <span class="mem4 px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
             </Show>
             <div part="ipaddress" id="ip-address" style={{ flex: 1 }} />
-            {/* <DeleteButton
+            <DeleteButton
               sendButtonColor={props.bubbleTextColor}
               type="button"
               isDisabled={messages().length === 1}
@@ -805,7 +805,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               on:click={clearChat}
             >
               <span style={{ 'font-family': 'LexiconNo2-RomanA' }}>Clear</span>
-            </DeleteButton> */}
+            </DeleteButton>
           </div>
           <div
             part="memu-5"

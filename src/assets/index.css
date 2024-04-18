@@ -206,15 +206,15 @@ textarea {
   color: var(--chatbot-host-bubble-color);
   background-color: #ffffff;
   /* border: 1.2px solid #000000 !important; */
-  border-radius: 20px !important;
+  border-radius: 20px ;
   padding:8px;
   margin-left:0px; 
 }
 
 .chatbot-host-bubble > .bubble-typing {
-  border-radius: 20px !important;
+  border-radius: 20px ;
   /* border: 1.2px solid !important; */
-  padding: 8px !important;
+  padding: 8px ;
   background-color:#fff;
   color: rgb(0, 0, 0);
   font-size: 16px;
@@ -227,11 +227,11 @@ textarea {
 }
 
 .chatbot-guest-bubble {
-  border-radius: 20px !important;
-  border: 1.2px solid black !important;
-  padding: 8px !important;
-  background-color: rgb(0, 0, 0) !important;
-  color: rgb(255, 255, 255) !important;
+  border-radius: 20px ;
+  border: 1.2px solid black ;
+  padding: 8px ;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255) ;
   font-size: 16px;
 
 }

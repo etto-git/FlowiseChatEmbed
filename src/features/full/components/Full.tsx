@@ -31,38 +31,38 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
     <>
       <style>{styles}</style>
       {/* <div class="ellipseContainer"> */}
-        <Show when={isBotDisplayed()}>
-          <div
-            part="parent-bot"
-            style={{
-              'background-color': props.theme?.chatWindow?.backgroundColor || '#ffffff',
-              // height: props.theme?.chatWindow?.height ? `${props.theme?.chatWindow?.height.toString()}vh` : '35vh',
-              // width: props.theme?.chatWindow?.width ? `${props.theme?.chatWindow?.width.toString()}vw` : '40vw',
-              margin: '0px',
-            }}
-          >
-            <Bot
-              badgeBackgroundColor={props.theme?.chatWindow?.backgroundColor}
-              bubbleBackgroundColor={props.theme?.button?.backgroundColor ?? defaultButtonColor}
-              bubbleTextColor={props.theme?.button?.iconColor ?? defaultIconColor}
-              showTitle={props.theme?.chatWindow?.showTitle}
-              title={props.theme?.chatWindow?.title}
-              titleAvatarSrc={props.theme?.chatWindow?.titleAvatarSrc}
-              welcomeMessage={props.theme?.chatWindow?.welcomeMessage}
-              poweredByTextColor={props.theme?.chatWindow?.poweredByTextColor}
-              textInput={props.theme?.chatWindow?.textInput}
-              botMessage={props.theme?.chatWindow?.botMessage}
-              userMessage={props.theme?.chatWindow?.userMessage}
-              fontSize={props.theme?.chatWindow?.fontSize}
-              chatflowid={props.chatflowid}
-              chatflowConfig={props.chatflowConfig}
-              apiHost={props.apiHost}
-              isFullPage={true}
-              observersConfig={props.observersConfig}
-            />
-          </div>
-          <div class="ellipse ellipse1" />
-        </Show>
+      <Show when={isBotDisplayed()}>
+        <div
+          part="parent-bot"
+          style={{
+            'background-color': props.theme?.chatWindow?.backgroundColor || '#ffffff',
+            // height: props.theme?.chatWindow?.height ? `${props.theme?.chatWindow?.height.toString()}vh` : '35vh',
+            // width: props.theme?.chatWindow?.width ? `${props.theme?.chatWindow?.width.toString()}vw` : '40vw',
+            margin: '0px',
+          }}
+        >
+          <Bot
+            badgeBackgroundColor={props.theme?.chatWindow?.backgroundColor}
+            bubbleBackgroundColor={props.theme?.button?.backgroundColor ?? defaultButtonColor}
+            bubbleTextColor={props.theme?.button?.iconColor ?? defaultIconColor}
+            showTitle={props.theme?.chatWindow?.showTitle}
+            title={props.theme?.chatWindow?.title}
+            titleAvatarSrc={props.theme?.chatWindow?.titleAvatarSrc}
+            welcomeMessage={props.theme?.chatWindow?.welcomeMessage}
+            poweredByTextColor={props.theme?.chatWindow?.poweredByTextColor}
+            textInput={props.theme?.chatWindow?.textInput}
+            botMessage={props.theme?.chatWindow?.botMessage}
+            userMessage={props.theme?.chatWindow?.userMessage}
+            fontSize={props.theme?.chatWindow?.fontSize}
+            chatflowid={props.chatflowid}
+            chatflowConfig={props.chatflowConfig}
+            apiHost={props.apiHost}
+            isFullPage={true}
+            observersConfig={props.observersConfig}
+          />
+        </div>
+        <div class="ellipse ellipse1" />
+      </Show>
       {/* </div> */}
     </>
   );

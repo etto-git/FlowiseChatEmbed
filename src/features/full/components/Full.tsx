@@ -30,7 +30,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
   return (
     <>
       <style>{styles}</style>
-      <div class="ellipseContainer">
+      {/* <div class="ellipseContainer"> */}
         <Show when={isBotDisplayed()}>
           <div
             part="parent-bot"
@@ -63,7 +63,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
           </div>
           <div class="ellipse ellipse1" />
         </Show>
-      </div>
+      {/* </div> */}
     </>
   );
 };

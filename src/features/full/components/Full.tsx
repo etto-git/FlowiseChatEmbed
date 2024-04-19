@@ -61,7 +61,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
               observersConfig={props.observersConfig}
             />
           </div>
-          <div class="ellipse ellipse1" />
+          <div class="ellipse ellipse2"></div>
         </div>
       </Show>
     </>

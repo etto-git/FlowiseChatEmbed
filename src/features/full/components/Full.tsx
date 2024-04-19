@@ -31,7 +31,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
     <>
       <style>{styles}</style>
       <Show when={isBotDisplayed()}>
-        <div class="ellipseContainer">
+        <div class="ellipseContainerChat">
           <div
             part="parent-bot"
             style={{

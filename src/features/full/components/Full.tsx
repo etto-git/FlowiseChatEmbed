@@ -34,6 +34,7 @@ export const Full = (props: FullProps, { element }: { element: HTMLElement }) =>
         {/* <div part="ellipseContainerChat" class="ellipseContainerChat"> */}
         <div
           part="parent-bot"
+          id="bot"
           style={{
             'background-color': props.theme?.chatWindow?.backgroundColor || '#ffffff',
             // height: props.theme?.chatWindow?.height ? `${props.theme?.chatWindow?.height.toString()}vh` : '35vh',
